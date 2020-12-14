@@ -701,21 +701,21 @@ Prevent null advice from displaying
 
 ## Instructions
 
-* [ ] Please fork and clone this repository.
-* [ ] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
-* [ ] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
+* [x] Please fork and clone this repository.
+* [x] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
+* [x] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
 
 ### MVP
 
 Add appropriate exception handling routines.
 
-* [ ] You must specifically handle the following exceptions:
-  * [ ] a resource is not found where it should be - for example, you look up a student who is not there
-  * [ ] a resource is found where it should not be - for example, you try to enroll a student in a course where they are already enrolled
-  * [ ] a non-handled endpoint is accessed (a URL not found exception)
-* [ ] All other exceptions should be handled by some generic exception handled that you provide.
-* [ ] All exception messages should start with the phrase "Found an issue with School: " followed by any system-generated messages you think appropriate.
-* [ ] The following is the format for the error messages
+* [x] You must specifically handle the following exceptions:
+  * [x] a resource is not found where it should be - for example, you look up a student who is not there
+  * [x] a resource is found where it should not be - for example, you try to enroll a student in a course where they are already enrolled
+  * [x] a non-handled endpoint is accessed (a URL not found exception)
+* [x] All other exceptions should be handled by some generic exception handled that you provide.
+* [x] All exception messages should start with the phrase "Found an issue with School: " followed by any system-generated messages you think appropriate.
+* [x] The following is the format for the error messages
   * **Title** - The title of the exception
   * **Status** - Http Status Code
   * **detail** - Detailed message for the client
@@ -727,28 +727,28 @@ Add appropriate exception handling routines.
 
 Add Validations
 
-* [ ] Add the following validations to your code
-  * [ ] Course Model
-    * [ ] Coursename
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 50 characters
-  * [ ] Student Model
-    * [ ] Name
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 30 characters
-  * [ ] Instructor Model
-    * [ ] Name
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 30 characters
-  * [ ] Each validation should report an appropriate exception message if violated
+* [x] Add the following validations to your code
+  * [x] Course Model
+    * [x] Coursename
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 50 characters
+  * [x] Student Model
+    * [x] Name
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 30 characters
+  * [x] Instructor Model
+    * [x] Name
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 30 characters
+  * [x] Each validation should report an appropriate exception message if violated
 
 Get Data from External API
 
-* [ ] Create an endpoint **/instructors/instructor/{instructorid}/advice** that returns the instructor's information plus random advice from an external API.
-  * [ ] The route of the external API is [https://api.adviceslip.com/advice](https://api.adviceslip.com/advice) and yields the JSON Object
+* [x] Create an endpoint **/instructors/instructor/{instructorid}/advice** that returns the instructor's information plus random advice from an external API.
+  * [x] The route of the external API is [https://api.adviceslip.com/advice](https://api.adviceslip.com/advice) and yields the JSON Object
 
   ```JSON
   {
@@ -762,22 +762,22 @@ Get Data from External API
   <details>
   <summary>Hint:</summary>
 
-  * [ ] Add a transient field called **advice** to the instructor model.
+  * [x] Add a transient field called **advice** to the instructor model.
     * Note: Other endpoints that return instructor will include an empty advice field.
   
-  * [ ] Create a model to represent the advice slip class
+  * [x] Create a model to represent the advice slip class
   
-  * [ ] Create the instructor repository
+  * [x] Create the instructor repository
   
-  * [ ] Create the instructor service
-    * [ ] Create a method called **addAdvice**
-      * [ ] Find the instructor using the repository **findById**
-      * [ ] get a random advice from the API
-        * [ ] The API returns the slip JSON from above
-        * [ ] The API returns data in media type text/html
-      * [ ] set the advice field to the advice received from the API
-      * [ ] return that modified instructor object to the controller
-    * [ ] The controller returns the modified instructor object to the client.
+  * [x] Create the instructor service
+    * [x] Create a method called **addAdvice**
+      * [x] Find the instructor using the repository **findById**
+      * [x] get a random advice from the API
+        * [x] The API returns the slip JSON from above
+        * [x] The API returns data in media type text/html
+      * [x] set the advice field to the advice received from the API
+      * [x] return that modified instructor object to the controller
+    * [x] The controller returns the modified instructor object to the client.
 
   </details>
 
@@ -812,11 +812,11 @@ Get Data from External API
 
 Custom Swagger Documentation
 
-* [ ] Add custom Swagger Documentation for
-  * [ ] All endpoints in the Courses Controller
-  * [ ] All fields in the Courses model
-  * [ ] All the validations added above should be documented in Swagger
-  * [ ] Swagger API-Information should point to your information
+* [x] Add custom Swagger Documentation for
+  * [x] All endpoints in the Courses Controller
+  * [x] All fields in the Courses model
+  * [x] All the validations added above should be documented in Swagger
+  * [x] Swagger API-Information should point to your information
 
 Use a search term for the advice
 
@@ -889,7 +889,7 @@ Expand the endpoint to see a sample instructor with advice about weather
 
 Prevent null advice from displaying
 
-* [ ] When an instructor model has no advice, the advice field is null, do not display the advice field in the JSON sent to the client. See [https://www.baeldung.com/jackson-ignore-null-fields](https://www.baeldung.com/jackson-ignore-null-fields) for insight.
+* [x] When an instructor model has no advice, the advice field is null, do not display the advice field in the JSON sent to the client. See [https://www.baeldung.com/jackson-ignore-null-fields](https://www.baeldung.com/jackson-ignore-null-fields) for insight.
 
 <details>
 <summary>http://localhost:2019/courses/course/6</summary>

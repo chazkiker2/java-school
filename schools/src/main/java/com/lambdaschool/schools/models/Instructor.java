@@ -1,118 +1,147 @@
 package com.lambdaschool.schools.models;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * The entity allowing interaction with the instructors table
  */
+@ApiModel(value = "Instructor",
+          description = "An instructor record")
 @Entity
 @Table(name = "instructors")
 public class Instructor
-    extends Auditable
-{
-    /**
-     * The primary key (long) of the instructor table
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long instructorid;
+		extends Auditable {
 
-    /**
-     * The Instructor's name (String)
-     */
-    @Column(nullable = false)
-    private String name;
+	/**
+	 * The primary key (long) of the instructor table
+	 */
+	@ApiModelProperty(name = "instructor id",
+	                  value = "primary key for course",
+	                  required = true,
+	                  example = "3")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long instructorid;
 
-    /**
-     * List of courses associated with this instructor. Does not get saved in the database directly.
-     * Forms a one to many relationship with courses. One instructor to many courses.
-     */
-    @OneToMany(mappedBy = "instructor",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true)
-    @JsonIgnoreProperties(value = "instructor",
-        allowSetters = true)
-    private List<Course> courses = new ArrayList<>();
+	/**
+	 * The Instructor's name (String)
+	 */
+	@ApiModelProperty(name = "instructor name",
+	                  value = "name for the instructor",
+	                  required = true,
+	                  example = "Felix Frontman")
+	@Column(nullable = false)
+	@Size(min = 2,
+	      max = 30,
+	      message = "Instructor name must be a minimum of 2 characters, maximum of 30 characters long.")
+	private String name;
 
-    /**
-     * Default Constructor used primarily by the JPA.
-     */
-    public Instructor()
-    {
-    }
+	/**
+	 * List of courses associated with this instructor. Does not get saved in the database directly.
+	 * Forms a one to many relationship with courses. One instructor to many courses.
+	 */
+	@OneToMany(mappedBy = "instructor",
+	           cascade = CascadeType.ALL,
+	           orphanRemoval = true)
+	@JsonIgnoreProperties(value = "instructor",
+	                      allowSetters = true)
+	private List<Course> courses = new ArrayList<>();
 
-    /**
-     * Given the name of instructor, add them
-     *
-     * @param name The name (String) for the new instructor
-     */
-    public Instructor(
-        String name)
-    {
-        this.name = name;
-    }
+	@ApiModelProperty(name = "advice",
+	                  value = "a String of the instructor's go-to advice (or null)",
+	                  example = "Don't eat yellow snow")
+	@Transient
+	@JsonInclude(Include.NON_NULL)
+	private String advice;
 
-    /**
-     * Getter for the instructor id
-     *
-     * @return The primary key (long) for this instructor
-     */
-    public long getInstructorid()
-    {
-        return instructorid;
-    }
+	/**
+	 * Default Constructor used primarily by the JPA.
+	 */
+	public Instructor() {
+	}
 
-    /**
-     * Setter for the instructor id
-     *
-     * @param instructorid The new primary key (long) for this instructor
-     */
-    public void setInstructorid(long instructorid)
-    {
-        this.instructorid = instructorid;
-    }
+	/**
+	 * Given the name of instructor, add them
+	 *
+	 * @param name The name (String) for the new instructor
+	 */
+	public Instructor(
+			String name
+	) {
+		this.name = name;
+	}
 
-    /**
-     * the instructor name
-     *
-     * @return the instructor name
-     */
-    public String getName()
-    {
-        return name;
-    }
+	/**
+	 * Getter for the instructor id
+	 *
+	 * @return The primary key (long) for this instructor
+	 */
+	public long getInstructorid() {
+		return instructorid;
+	}
 
-    /**
-     * Setter for the instructor name
-     *
-     * @param name the new instructor name (String) for this instructor
-     */
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+	/**
+	 * Setter for the instructor id
+	 *
+	 * @param instructorid The new primary key (long) for this instructor
+	 */
+	public void setInstructorid(long instructorid) {
+		this.instructorid = instructorid;
+	}
 
-    /**
-     * Getter for courses
-     *
-     * @return The list of courses this instructor is teaching
-     */
-    public List<Course> getCourses()
-    {
-        return courses;
-    }
+	/**
+	 * the instructor name
+	 *
+	 * @return the instructor name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * Setter for courses
-     *
-     * @param courses The new list of courses this instructor is teaching
-     */
-    public void setCourses(List<Course> courses)
-    {
-        this.courses = courses;
-    }
+	/**
+	 * Setter for the instructor name
+	 *
+	 * @param name the new instructor name (String) for this instructor
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Getter for courses
+	 *
+	 * @return The list of courses this instructor is teaching
+	 */
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	/**
+	 * Setter for courses
+	 *
+	 * @param courses The new list of courses this instructor is teaching
+	 */
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
+	public String getAdvice() {
+		return advice;
+	}
+
+	public void setAdvice(String advice) {
+		this.advice = advice;
+	}
+
 }
