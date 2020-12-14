@@ -53,7 +53,7 @@ public class InstructorServiceImpl
 		AdviceSlip                             adviceSlip     = responseEntity.getBody()
 		                                                                      .getSlip();
 		currentInst.setAdvice(adviceSlip.getAdvice());
-//		instructorRepo.save(currentInst);
+		instructorRepo.save(currentInst);
 		return currentInst;
 	}
 

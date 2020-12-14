@@ -747,8 +747,8 @@ Add Validations
 
 Get Data from External API
 
-* [ ] Create an endpoint **/instructors/instructor/{instructorid}/advice** that returns the instructor's information plus random advice from an external API.
-  * [ ] The route of the external API is [https://api.adviceslip.com/advice](https://api.adviceslip.com/advice) and yields the JSON Object
+* [x] Create an endpoint **/instructors/instructor/{instructorid}/advice** that returns the instructor's information plus random advice from an external API.
+  * [x] The route of the external API is [https://api.adviceslip.com/advice](https://api.adviceslip.com/advice) and yields the JSON Object
 
   ```JSON
   {
@@ -762,22 +762,22 @@ Get Data from External API
   <details>
   <summary>Hint:</summary>
 
-  * [ ] Add a transient field called **advice** to the instructor model.
+  * [x] Add a transient field called **advice** to the instructor model.
     * Note: Other endpoints that return instructor will include an empty advice field.
   
-  * [ ] Create a model to represent the advice slip class
+  * [x] Create a model to represent the advice slip class
   
-  * [ ] Create the instructor repository
+  * [x] Create the instructor repository
   
-  * [ ] Create the instructor service
-    * [ ] Create a method called **addAdvice**
-      * [ ] Find the instructor using the repository **findById**
-      * [ ] get a random advice from the API
-        * [ ] The API returns the slip JSON from above
-        * [ ] The API returns data in media type text/html
-      * [ ] set the advice field to the advice received from the API
-      * [ ] return that modified instructor object to the controller
-    * [ ] The controller returns the modified instructor object to the client.
+  * [x] Create the instructor service
+    * [x] Create a method called **addAdvice**
+      * [x] Find the instructor using the repository **findById**
+      * [x] get a random advice from the API
+        * [x] The API returns the slip JSON from above
+        * [x] The API returns data in media type text/html
+      * [x] set the advice field to the advice received from the API
+      * [x] return that modified instructor object to the controller
+    * [x] The controller returns the modified instructor object to the client.
 
   </details>
 
@@ -889,7 +889,7 @@ Expand the endpoint to see a sample instructor with advice about weather
 
 Prevent null advice from displaying
 
-* [ ] When an instructor model has no advice, the advice field is null, do not display the advice field in the JSON sent to the client. See [https://www.baeldung.com/jackson-ignore-null-fields](https://www.baeldung.com/jackson-ignore-null-fields) for insight.
+* [x] When an instructor model has no advice, the advice field is null, do not display the advice field in the JSON sent to the client. See [https://www.baeldung.com/jackson-ignore-null-fields](https://www.baeldung.com/jackson-ignore-null-fields) for insight.
 
 <details>
 <summary>http://localhost:2019/courses/course/6</summary>
