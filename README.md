@@ -812,11 +812,11 @@ Get Data from External API
 
 Custom Swagger Documentation
 
-* [ ] Add custom Swagger Documentation for
-  * [ ] All endpoints in the Courses Controller
-  * [ ] All fields in the Courses model
-  * [ ] All the validations added above should be documented in Swagger
-  * [ ] Swagger API-Information should point to your information
+* [x] Add custom Swagger Documentation for
+  * [x] All endpoints in the Courses Controller
+  * [x] All fields in the Courses model
+  * [x] All the validations added above should be documented in Swagger
+  * [x] Swagger API-Information should point to your information
 
 Use a search term for the advice
 
