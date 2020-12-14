@@ -1,6 +1,7 @@
 package com.lambdaschool.schools.handlers;
 
 
+import com.lambdaschool.schools.exceptions.ResourceExistsException;
 import com.lambdaschool.schools.exceptions.ResourceNotFoundException;
 import com.lambdaschool.schools.models.ErrorDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,25 @@ public class RestExceptionHandler
 				null,
 				HttpStatus.NOT_FOUND
 		);
+	}
+
+	@ExceptionHandler(ResourceExistsException.class)
+	public ResponseEntity<?> handleResourceExistsException(ResourceExistsException ex) {
+		ErrorDetail errorDetail = new ErrorDetail();
+		errorDetail.setTimestamp(new Date());
+		errorDetail.setStatus(HttpStatus.CONFLICT.value());
+		errorDetail.setTitle("Resource Already Exists");
+		errorDetail.setDetail(ex.getMessage());
+		errorDetail.setDeveloperMessage(ex.getClass()
+		                                  .getName());
+		errorDetail.setErrors(helper.getConstraintViolations(ex));
+		return new ResponseEntity<>(
+				errorDetail,
+				null,
+				HttpStatus.CONFLICT
+		);
+
+
 	}
 
 }

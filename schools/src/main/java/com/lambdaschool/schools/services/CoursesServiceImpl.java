@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityExistsException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -80,6 +82,11 @@ public class CoursesServiceImpl
 					                              "Course id " + course.getCourseid() + " not found!"));
 
 			newCourse.setCourseid(course.getCourseid());
+		} else {
+			Optional<Course> optional = courserepos.findById(course.getCourseid());
+			if (optional.isPresent()) {
+				throw new EntityExistsException("Course id " + course.getCourseid() + " already exists!");
+			}
 		}
 
 		newCourse.setCoursename(course.getCoursename());

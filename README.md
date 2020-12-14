@@ -701,21 +701,21 @@ Prevent null advice from displaying
 
 ## Instructions
 
-* [ ] Please fork and clone this repository.
-* [ ] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
-* [ ] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
+* [x] Please fork and clone this repository.
+* [x] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
+* [x] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use!
 
 ### MVP
 
 Add appropriate exception handling routines.
 
-* [ ] You must specifically handle the following exceptions:
-  * [ ] a resource is not found where it should be - for example, you look up a student who is not there
-  * [ ] a resource is found where it should not be - for example, you try to enroll a student in a course where they are already enrolled
-  * [ ] a non-handled endpoint is accessed (a URL not found exception)
-* [ ] All other exceptions should be handled by some generic exception handled that you provide.
-* [ ] All exception messages should start with the phrase "Found an issue with School: " followed by any system-generated messages you think appropriate.
-* [ ] The following is the format for the error messages
+* [x] You must specifically handle the following exceptions:
+  * [x] a resource is not found where it should be - for example, you look up a student who is not there
+  * [x] a resource is found where it should not be - for example, you try to enroll a student in a course where they are already enrolled
+  * [x] a non-handled endpoint is accessed (a URL not found exception)
+* [x] All other exceptions should be handled by some generic exception handled that you provide.
+* [x] All exception messages should start with the phrase "Found an issue with School: " followed by any system-generated messages you think appropriate.
+* [x] The following is the format for the error messages
   * **Title** - The title of the exception
   * **Status** - Http Status Code
   * **detail** - Detailed message for the client
@@ -727,23 +727,23 @@ Add appropriate exception handling routines.
 
 Add Validations
 
-* [ ] Add the following validations to your code
-  * [ ] Course Model
-    * [ ] Coursename
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 50 characters
-  * [ ] Student Model
-    * [ ] Name
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 30 characters
-  * [ ] Instructor Model
-    * [ ] Name
-      * [ ] Not Null
-      * [ ] Minimum 2 characters
-      * [ ] Maximum 30 characters
-  * [ ] Each validation should report an appropriate exception message if violated
+* [x] Add the following validations to your code
+  * [x] Course Model
+    * [x] Coursename
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 50 characters
+  * [x] Student Model
+    * [x] Name
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 30 characters
+  * [x] Instructor Model
+    * [x] Name
+      * [x] Not Null
+      * [x] Minimum 2 characters
+      * [x] Maximum 30 characters
+  * [x] Each validation should report an appropriate exception message if violated
 
 Get Data from External API
 

@@ -1,5 +1,6 @@
 package com.lambdaschool.schools.services;
 
+import com.lambdaschool.schools.exceptions.ResourceExistsException;
 import com.lambdaschool.schools.exceptions.ResourceNotFoundException;
 import com.lambdaschool.schools.models.Course;
 import com.lambdaschool.schools.models.StudCourses;
@@ -12,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 
 /**
  * Implements the StudentService Interface
@@ -84,6 +87,14 @@ public class StudentServiceImpl
         {
             Course newCourse = coursesService.findCourseById(sc.getCourse()
                 .getCourseid());
+
+//            for (StudCourses existingSc : newCourse.getStudents()) {
+//                Student           existingStudent = existingSc.getStudent();
+//                Optional<Student> opt             = studentrepos.findById(existingStudent.getStudentid());
+//                if (opt.isPresent()) {
+//                    throw new ResourceExistsException("Student " + existingStudent.getStudentid() + " Already Exists!");
+//                }
+//            }
 
             newStudent.getCourses()
                 .add(new StudCourses(newCourse,
